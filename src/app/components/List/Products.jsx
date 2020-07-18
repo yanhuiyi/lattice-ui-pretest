@@ -22,7 +22,7 @@ class Products extends Component {
 
     render = () => {
         return (
-            <div>
+            <div className="products">
                 <Consumer>
                     {
                         value =>

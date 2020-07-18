@@ -3,6 +3,7 @@ import ListHeader from "./ListHeader";
 import Products from "./Products";
 import { Provider } from '../Board/BoardContext';
 import fetchProducts from "../../../service/MockProductApiClient";
+import './List.scss';
 
 class List extends Component {
     constructor() {
@@ -81,12 +82,12 @@ class List extends Component {
         let isEmpty = Object.keys(this.state.data).length === 0;
         let child;
         if(isEmpty) {
-            child = <p><b>No products found.</b></p>
+            child = <p className="noProducts"><b>No products found.</b></p>
         } else {
             child = <Products></Products>
         }
         return (
-            <div>
+            <div className="list">
                 <Provider value={this.state}>
                         {
                             <div>

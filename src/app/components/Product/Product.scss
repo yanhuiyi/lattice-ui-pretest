@@ -1,7 +1,25 @@
 .product {
-    margin: 0;
+    margin: 5px 0;
     padding: 0;
+    overflow: hidden;
+    clear: both;
     li {
+        float: left;
         display: inline;
+        text-align: left;
+        padding: 5px 0;
     }
+    .name {
+        width: 35%;
+    }
+    .price {
+        width: 35%;
+    }
+    .detail {
+        width: 30%;
+    }
+}
+
+.category {
+    float: left;
 }
