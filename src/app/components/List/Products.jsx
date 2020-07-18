@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import Product from "../Product/Product";
-import fetchProducts from "../../../service/MockProductApiClient";
+import { Consumer } from "../Board/BoardContext";
 
 class Products extends Component {
     constructor(props) {
         super(props);
-        this.state = {data: []};
     }
 
     _groupBy(list, prop) {
@@ -17,26 +16,21 @@ class Products extends Component {
         return group;
     }
 
-    componentDidMount() {
-        fetchProducts()
-        .then(response => this.setState({
-            data: response.reduce((r, a) => {
-                r[a.category] = [...r[a.category] || [], a];
-                return r;
-            }, {})
-        }));
-    }
-
     // async fetchProduct(params) {
     //     const response = await fetchProducts();
     // }
 
     render = () => {
-        const { data } = this.state;
-
         return (
             <div>
-                {Object.keys(data).map((key, index) => <Product key={key} category={key} product={data[key]}></Product>)}
+                <Consumer>
+                    {
+                        value =>
+                            <div>
+                                {Object.keys(value.data).map((key, index) => <Product key={key} category={key} product={value.data[key]}></Product>)}
+                            </div>
+                    }
+                </Consumer>
             </div>
         )
     };
