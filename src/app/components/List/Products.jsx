@@ -16,10 +16,6 @@ class Products extends Component {
         return group;
     }
 
-    // async fetchProduct(params) {
-    //     const response = await fetchProducts();
-    // }
-
     render = () => {
         return (
             <div className="products">

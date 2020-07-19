@@ -3,6 +3,11 @@
   box-sizing: content-box;
 }
 
+body {
+  position: relative;
+  color: #fff;
+}
+
 .App {
   text-align: center;
 }

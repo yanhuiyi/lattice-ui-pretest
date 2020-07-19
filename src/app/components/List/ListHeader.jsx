@@ -5,14 +5,7 @@ import "./ListHeader.scss";
 class ListHeader extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-
-        };
     }
-
-    handleSubmit = () => {
-
-    };
 
     render() {
         return (

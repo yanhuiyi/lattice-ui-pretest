@@ -1,0 +1,39 @@
+
+
+/* overlay styles, all needed */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 10;
+    display: none;
+}
+
+/* just some content with arbitrary styles for explanation purposes */
+.modal {
+    width: 300px;
+    height: 400px;
+    line-height: 200px;
+    position: fixed;
+    top: 50%; 
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -150px;
+    background-color: #ccc;
+    text-align: center;
+    z-index: 11; /* 1px higher than the overlay layer */
+    display: none;
+}
+
+#closeDialog {
+    position: absolute;
+    right: 15px;
+    top: 0px;
+}
+
+.dialogBody {
+    color: #666;
+}

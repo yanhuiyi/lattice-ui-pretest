@@ -1,6 +1,7 @@
 .list {
     width: 400px;
     margin: auto;
+    color: #000;
 }
 
 .products {
@@ -9,6 +10,7 @@
 }
 
 .noProducts {
+    margin: 0;
     clear: both;
     float: left;
 }

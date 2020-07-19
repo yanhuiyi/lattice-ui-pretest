@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import ListHeader from "./ListHeader";
 import Products from "./Products";
+import ModelDialog from "../ModelDialog/ModelDialog";
 import { Provider } from '../Board/BoardContext';
 import fetchProducts from "../../../service/MockProductApiClient";
 import './List.scss';
@@ -12,13 +13,16 @@ class List extends Component {
         this.filteredProducts = [];
         this.keywordChangeHandler = this.keywordChangeHandler.bind(this);
         this.inStockChangeHandler = this.inStockChangeHandler.bind(this);
-
+        this.handleModelDialog = this.handleModelDialog.bind(this);
+        
         this.state = {
             data: {},
             keyword: "",
+            message: "",
             inStock: false,
             setKeyword: this.keywordChangeHandler,
-            setInStock: this.inStockChangeHandler
+            setInStock: this.inStockChangeHandler,
+            handleModelDialog: this.handleModelDialog
         }
     }
 
@@ -72,6 +76,13 @@ class List extends Component {
 
         this.setStateProducts();
     }
+
+    handleModelDialog(message) {
+        this.setState({
+            message: message
+        });
+        ModelDialog.show();
+    }
   
     componentDidMount() {
         fetchProducts()
@@ -87,15 +98,18 @@ class List extends Component {
             child = <Products></Products>
         }
         return (
-            <div className="list">
-                <Provider value={this.state}>
-                        {
-                            <div>
-                                <ListHeader></ListHeader>
-                                {child}
-                            </div>
-                        }
-                    </Provider>
+            <div>
+                <div className="list">
+                    <Provider value={this.state}>
+                            {
+                                <div>
+                                    <ListHeader></ListHeader>
+                                    {child}
+                                </div>
+                            }
+                        </Provider>
+                </div>
+                <ModelDialog message={this.state.message}></ModelDialog>
             </div>
         ); 
     };
